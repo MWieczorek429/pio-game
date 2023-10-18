@@ -1,22 +1,24 @@
 import java.util.Random;
-import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
 
         int number, guess;
 
-        Scanner scanner = new Scanner(System.in);
         Random dice = new Random();
+        Player player = new Player();
+
+        player.setName("Jan");
 
         do {
             number = dice.nextInt(6) + 1;
+            System.out.println("Kostka: " + number);
 
-            System.out.print("Podaj liczbe: ");
-            guess = scanner.nextInt();
+            guess = player.guess();
+            System.out.println("Gracz: " + guess);
 
             if (number == guess) {
-                System.out.println("\nBrawo zgadłeś!");
+                System.out.println("\nBrawo "+ player.getName() +" zgadłeś!");
             } else {
                 System.out.println("\nTym razem się nie udało. Prawidłowa liczba to: " + number + ".");
             }
