@@ -1,21 +1,22 @@
 import java.util.Random;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+
 
         int number, guess;
 
         Random dice = new Random();
         Player player = new Player();
 
-        player.setName("Jan");
 
         do {
             number = dice.nextInt(6) + 1;
             System.out.println("Kostka: " + number);
 
             guess = player.guess();
-            System.out.println("Gracz: " + guess);
+            System.out.println(player.getName() + " " + guess);
 
             if (number == guess) {
                 System.out.println("\nBrawo "+ player.getName() +" zgadłeś!");
@@ -24,5 +25,8 @@ public class Main {
             }
 
         } while (number != guess);
+
+
     }
+
 }

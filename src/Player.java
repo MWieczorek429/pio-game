@@ -1,16 +1,30 @@
+import java.io.IOException;
 import java.util.Random;
 
 public class Player {
 
+    public Player(){}
+
+    public Player(String imie){
+        setName(imie);
+    }
+
     private Random brain = new Random();
-    private String name;
+    private String name = "Jan";
 
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
-        this.name = name;
+
+        if(name != null && !name.isEmpty()){
+            this.name = name;
+        }
+        else {
+            System.err.println("Nieprawidłowe imię.");
+        }
+
     }
 
     public int guess(){
