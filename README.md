@@ -1,3 +1,3 @@
-#Zadanie zaliczenia ćwiczeń
+# Zadanie zaliczenia ćwiczeń
 
-#Kod z ćwiczeń
+# Kod z ćwiczeń
