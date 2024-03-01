@@ -1,32 +1,23 @@
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
 
+        Game game = new Game();
+        game.addPlayer(new PlayerComp("Stefan"));
+        game.addPlayer(new PlayerComp("Adam"));
+        game.addPlayer(new PlayerComp("Adam"));
 
-        int number, guess;
+        game.printPlayers();
+        //game.removePlayer("Adam");
+        game.printPlayers();
 
-        Random dice = new Random();
-        Player player = new Player();
+        for(int i = 0; i < 10; ++i)
+            game.play();
 
-
-        do {
-            number = dice.nextInt(6) + 1;
-            System.out.println("Kostka: " + number);
-
-            guess = player.guess();
-            System.out.println(player.getName() + " " + guess);
-
-            if (number == guess) {
-                System.out.println("\nBrawo "+ player.getName() +" zgadłeś!");
-            } else {
-                System.out.println("\nTym razem się nie udało. Prawidłowa liczba to: " + number + ".");
-            }
-
-        } while (number != guess);
-
-
+        game.printStats();
     }
 
 }

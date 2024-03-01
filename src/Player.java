@@ -1,15 +1,14 @@
 import java.io.IOException;
 import java.util.Random;
 
-public class Player {
+public abstract class Player {
 
-    public Player(){}
+    public Player() {}
 
-    public Player(String imie){
-        setName(imie);
+    public Player(String name) {
+        setName(name);
     }
 
-    private Random brain = new Random();
     private String name = "Jan";
 
     public String getName() {
@@ -17,17 +16,13 @@ public class Player {
     }
 
     public void setName(String name) {
-
-        if(name != null && !name.isEmpty()){
+        if (name != null && name.matches("^[a-zA-Z0-9~.]{3,}$")) {
             this.name = name;
+        } else {
+            throw new IllegalArgumentException("Nieprawidłowe imię.");
         }
-        else {
-            System.err.println("Nieprawidłowe imię.");
-        }
-
     }
 
-    public int guess(){
-        return brain.nextInt(6) + 1;
-    }
+
+    public abstract int guess();
 }
